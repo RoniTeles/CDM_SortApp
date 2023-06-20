@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Sort App</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="sort_app">Sort App</string>
+    <string name="cadastre_se">Cadastre-se</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="clique_para_fazer_o_login">Clique para fazer o Login</string>
+    <string name="clique_para_cadastrar">Clique para cadastrar</string>
+    <string name="logout">Logout</string>
+    <string name="adicionaritem">adicionarItem</string>
+    <string name="lista">lista</string>
+    <string name="scan">scan</string>
+    <string name="nome_do_item">Nome do Item</string>
+    <string name="categoria">Categoria</string>
+    <string name="quantidade">Quantidade</string>
+    <string name="salvar">Salvar</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="c_digo_de_barras">Código de Barras</string>
+    <string name="consultar">Consultar</string>
+</resources>

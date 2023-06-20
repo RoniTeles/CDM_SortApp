@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdicionaItemActivity"
+    android:padding="30dp">
+
+    <EditText
+        android:id="@+id/nomeInput"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="132dp"
+        android:ems="10"
+        android:hint="@string/nome_do_item"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/categoriaInput"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/categoria"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/nomeInput" />
+
+    <EditText
+        android:id="@+id/quantidadeInput"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/quantidade"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@+id/categoriaInput" />
+
+    <Button
+        android:id="@+id/btn_salvarItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="131dp"
+        android:text="@string/salvar"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quantidadeInput" />
+</androidx.constraintlayout.widget.ConstraintLayout>

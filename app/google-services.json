@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "87535807870",
+    "project_id": "sort-app-rtec",
+    "storage_bucket": "sort-app-rtec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87535807870:android:07502fa08c51dcfd72172f",
+        "android_client_info": {
+          "package_name": "br.com.uniritter.sortapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87535807870-jpijetorm9ig5sa1t1lk32a19qm16ut7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRfoCxwB_lOj1fa7n3lqE3rdG-kRJgMjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87535807870-jpijetorm9ig5sa1t1lk32a19qm16ut7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
