@@ -1,5 +1,4 @@
-package br.com.uniritter.sortapp;
-import android.annotation.SuppressLint;
+package br.com.uniritter.sortapp.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,17 +13,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import br.com.uniritter.sortapp.R;
+import br.com.uniritter.sortapp.UpdateActivity;
+
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
     private Context context;
     private ArrayList id_item, nome_item, categoria_item, quantidade_item;
 
     Activity activity;
-    CustomAdapter(Activity activity,
-                  Context context,
-                  ArrayList id_item,
-                  ArrayList nome_item,
-                  ArrayList categoria_item,
-                  ArrayList quantidade_item) {
+    public CustomAdapter(Activity activity,
+                         Context context,
+                         ArrayList id_item,
+                         ArrayList nome_item,
+                         ArrayList categoria_item,
+                         ArrayList quantidade_item) {
         this.activity = activity;
         this.context = context;
         this.id_item = id_item;
@@ -43,7 +45,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-
         holder.nome_item_txt.setText(String.valueOf(nome_item.get(position)));
         holder.categoria_item_txt.setText(String.valueOf(categoria_item.get(position)));
         holder.quantidade_item_txt.setText(String.valueOf(quantidade_item.get(position)));

@@ -7,7 +7,7 @@
     android:padding="15dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".LoginActivity">
     
     <TextView
         android:text="@string/sort_app"

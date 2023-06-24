@@ -4,27 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_margin="10sp"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".ConsultaActivity">
 
 
     <EditText
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:hint="Código de Barras"
+        android:layout_marginTop="40dp"
         android:height="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/rcvConsulta"
+        android:hint="@string/c_digo_de_barras"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvConsulta"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/button_consultar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="140dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/consultar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <TextView
+        android:id="@+id/nomeProduto"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/button_consultar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

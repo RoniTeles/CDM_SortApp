@@ -1,4 +1,4 @@
-package br.com.uniritter.sortapp;
+package br.com.uniritter.sortapp.models;
 
 public class ProductModel {
 

@@ -1,77 +1,65 @@
 package br.com.uniritter.sortapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.textfield.TextInputEditText;
 
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
+import br.com.uniritter.sortapp.adapters.ProductAdapter;
 
 public class ConsultaActivity extends AppCompatActivity {
+    private EditText editText;
+    private TextView text;
 
-    String api = "http://localhost:3000/produto";
-    ArrayList<ProductModel> allProductList;
-    RecyclerView rcvConsulta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta);
-        rcvConsulta = findViewById(R.id.rcvConsulta);
-        rcvConsulta.setLayoutManager(new LinearLayoutManager(this));
 
-        getDados();
-        allProductList = new ArrayList<>();
-
+        editText = findViewById(R.id.editText);
+        text = findViewById(R.id.nomeProduto);
+        Button btn_consultar = findViewById(R.id.button_consultar);
+        btn_consultar.setOnClickListener(this::onClick);
     }
 
-    private void getDados() {
-        RequestQueue queue = Volley.newRequestQueue(this);
+    private void onClick(View view) {
+        if (TextUtils.isEmpty(String.valueOf(editText.getText()))) {
+            Toast.makeText(this, "Você precisa informar o código", Toast.LENGTH_SHORT).show();
+        } else {
+            String url = "http://www.eanpictures.com.br:9000/api/desc/" + editText.getText();
 
-        // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, api,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
+                    url, null,
+                    response -> {
+                        ProductAdapter productAdapter;
                         try {
-                            JSONArray array = new JSONArray(response);
-                            for (int i = 0; i < array.length(); i++){
-                                JSONObject singleObject = array.getJSONObject(i);
-                                ProductModel singleProduct = new ProductModel(
-                                        singleObject.getString("nome"),
-                                        singleObject.getString("url")
-                                );
-                                allProductList.add(singleProduct);
-
-                            }
-
-                            rcvConsulta.setAdapter(new ProductAdapter(ConsultaActivity.this, allProductList));
+                            productAdapter = new ProductAdapter(
+                                    response.getString("Nome"));
+                            text.setText(productAdapter.getName());
                         } catch (JSONException e) {
-                            e.printStackTrace();
+                            System.out.println("erro no Json." + e.getMessage());
                         }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("api", "onErrorResponse: " + error.getLocalizedMessage());
 
-            }
-        });
-
-        queue.add(stringRequest);
+                    }, error -> {
+                System.out.println("erro no Json." + error.getMessage());
+                Toast.makeText(this, "Produto não encontrado", Toast.LENGTH_LONG).show();
+            });
+            RequestQueue queue = Volley.newRequestQueue(this);
+            queue.add(request);
+        }
     }
 }

@@ -19,7 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     TextInputEditText editTextEmail, editTextSenha;
     Button buttonLogin;
     FirebaseAuth mAuth;
@@ -54,7 +54,7 @@ public class Login extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Cadastro.class);
+                Intent intent = new Intent(getApplicationContext(), CadastroActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -69,12 +69,12 @@ public class Login extends AppCompatActivity {
                 senha = String.valueOf(editTextSenha.getText());
 
                 if (TextUtils.isEmpty(email)){
-                    Toast.makeText(Login.this, "Insira o email", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Insira o email", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(senha)){
-                    Toast.makeText(Login.this, "Insira a senha", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Insira a senha", Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -84,7 +84,7 @@ public class Login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(Login.this, "Login realizado com sucesso!",
+                                    Toast.makeText(LoginActivity.this, "Login realizado com sucesso!",
                                             Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
@@ -92,7 +92,7 @@ public class Login extends AppCompatActivity {
 
                                 } else {
                                     // If sign in fails, display a message to the user.
-                                    Toast.makeText(Login.this, "Falha no login.",
+                                    Toast.makeText(LoginActivity.this, "Falha no login.",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
